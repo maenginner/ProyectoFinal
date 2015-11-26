@@ -66,39 +66,7 @@ var drawingApp = (function () {
 				i,
 				selected,
 
-				drawCrayon = function (x, y, color, selected) {
-
-					context.beginPath();
-					context.moveTo(x + 41, y + 11);
-					context.lineTo(x + 41, y + 35);
-					context.lineTo(x + 29, y + 35);
-					context.lineTo(x + 29, y + 33);
-					context.lineTo(x + 11, y + 27);
-					context.lineTo(x + 11, y + 19);
-					context.lineTo(x + 29, y + 13);
-					context.lineTo(x + 29, y + 11);
-					context.lineTo(x + 41, y + 11);
-					context.closePath();
-					context.fillStyle = color;
-					context.fill();
-
-					if (selected) {
-						context.drawImage(crayonImage, x, y, mediumImageWidth, mediumImageHeight);
-					} else {
-						context.drawImage(crayonImage, 0, 0, 59, mediumImageHeight, x, y, 59, mediumImageHeight);
-					}
-				},
-
 				drawMarker = function (x, y, color, selected) {
-
-					context.beginPath();
-					context.moveTo(x + 10, y + 24);
-					context.lineTo(x + 10, y + 24);
-					context.lineTo(x + 22, y + 16);
-					context.lineTo(x + 22, y + 31);
-					context.closePath();
-					context.fillStyle = color;
-					context.fill();
 
 					if (selected) {
 						context.drawImage(markerImage, x, y, mediumImageWidth, mediumImageHeight);
@@ -123,27 +91,27 @@ var drawingApp = (function () {
 				selected = (curColor === colorPurple);
 				locX = selected ? 18 : 52;
 				locY = 19;
-				drawCrayon(locX, locY, colorPurple, selected);
+				//drawCrayon(locX, locY, colorPurple, selected);
 
 				// Draw green crayon
 				selected = (curColor === colorGreen);
 				locX = selected ? 18 : 52;
 				locY += 46;
-				drawCrayon(locX, locY, colorGreen, selected);
+				//drawCrayon(locX, locY, colorGreen, selected);
 
 				// Draw yellow crayon
 				selected = (curColor === colorYellow);
 				locX = selected ? 18 : 52;
 				locY += 46;
-				drawCrayon(locX, locY, colorYellow, selected);
+				//drawCrayon(locX, locY, colorYellow, selected);
 
 				// Draw brown crayon
 				selected = (curColor === colorBrown);
 				locX = selected ? 18 : 52;
 				locY += 46;
-				drawCrayon(locX, locY, colorBrown, selected);
+				//drawCrayon(locX, locY, colorBrown, selected);
 
-			} else if (curTool === "marker") {
+			} else if (curTool === "marcador") {
 
 				// Draw the marker tool background
 				context.drawImage(markerBackgroundImage, 0, 0, canvasWidth, canvasHeight);
@@ -172,7 +140,7 @@ var drawingApp = (function () {
 				locY += 46;
 				drawMarker(locX, locY, colorBrown, selected);
 
-			} else if (curTool === "eraser") {
+			} else if (curTool === "borrador") {
 
 				context.drawImage(eraserBackgroundImage, 0, 0, canvasWidth, canvasHeight);
 				context.drawImage(eraserImage, 18, 19, mediumImageWidth, mediumImageHeight);
@@ -180,16 +148,16 @@ var drawingApp = (function () {
 
 			// Draw line on ruler to indicate size
 			switch (curSize) {
-			case "small":
+			case "pequeño":
 				locX = 467;
 				break;
 			case "normal":
 				locX = 450;
 				break;
-			case "large":
+			case "grande":
 				locX = 428;
 				break;
-			case "huge":
+			case "mgrande":
 				locX = 399;
 				break;
 			default:
@@ -213,16 +181,16 @@ var drawingApp = (function () {
 
 				// Set the drawing radius
 				switch (clickSize[i]) {
-				case "small":
+				case "pequeño":
 					radius = 2;
 					break;
 				case "normal":
 					radius = 5;
 					break;
-				case "large":
+				case "grande":
 					radius = 10;
 					break;
-				case "huge":
+				case "mgrande":
 					radius = 20;
 					break;
 				default:
@@ -241,7 +209,7 @@ var drawingApp = (function () {
 				context.lineTo(clickX[i], clickY[i]);
 				
 				// Set the drawing color
-				if (clickTool[i] === "eraser") {
+				if (clickTool[i] === "borrador") {
 					//context.globalCompositeOperation = "destination-out"; // To erase instead of draw over with white
 					context.strokeStyle = 'white';
 				} else {
@@ -286,49 +254,9 @@ var drawingApp = (function () {
 		createUserEvents = function () {
 			var press = function (e) {
 				// Mouse down location
-				var sizeHotspotStartX,
-					mouseX = e.pageX - this.offsetLeft,
+				var mouseX = e.pageX - this.offsetLeft,
 					mouseY = e.pageY - this.offsetTop;
 
-				if (mouseX < drawingAreaX) { // Left of the drawing area
-					if (mouseX > mediumStartX) {
-						if (mouseY > mediumStartY && mouseY < mediumStartY + mediumImageHeight) {
-							curColor = colorPurple;
-						} else if (mouseY > mediumStartY + mediumImageHeight && mouseY < mediumStartY + mediumImageHeight * 2) {
-							curColor = colorGreen;
-						} else if (mouseY > mediumStartY + mediumImageHeight * 2 && mouseY < mediumStartY + mediumImageHeight * 3) {
-							curColor = colorYellow;
-						} else if (mouseY > mediumStartY + mediumImageHeight * 3 && mouseY < mediumStartY + mediumImageHeight * 4) {
-							curColor = colorBrown;
-						}
-					}
-				} else if (mouseX > drawingAreaX + drawingAreaWidth) { // Right of the drawing area
-
-					if (mouseY > toolHotspotStartY) {
-						if (mouseY > sizeHotspotStartY) {
-							sizeHotspotStartX = drawingAreaX + drawingAreaWidth;
-							if (mouseY < sizeHotspotStartY + sizeHotspotHeight && mouseX > sizeHotspotStartX) {
-								if (mouseX < sizeHotspotStartX + sizeHotspotWidthObject.huge) {
-									curSize = "huge";
-								} else if (mouseX < sizeHotspotStartX + sizeHotspotWidthObject.large + sizeHotspotWidthObject.huge) {
-									curSize = "large";
-								} else if (mouseX < sizeHotspotStartX + sizeHotspotWidthObject.normal + sizeHotspotWidthObject.large + sizeHotspotWidthObject.huge) {
-									curSize = "normal";
-								} else if (mouseX < sizeHotspotStartX + sizeHotspotWidthObject.small + sizeHotspotWidthObject.normal + sizeHotspotWidthObject.large + sizeHotspotWidthObject.huge) {
-									curSize = "small";
-								}
-							}
-						} else {
-							if (mouseY < toolHotspotStartY + toolHotspotHeight) {
-								curTool = "crayon";
-							} else if (mouseY < toolHotspotStartY + toolHotspotHeight * 2) {
-								curTool = "marker";
-							} else if (mouseY < toolHotspotStartY + toolHotspotHeight * 3) {
-								curTool = "eraser";
-							}
-						}
-					}
-				}
 				paint = true;
 				addClick(mouseX, mouseY, false);
 				redraw();
@@ -338,14 +266,12 @@ var drawingApp = (function () {
 					if (paint) {
 						addClick(e.pageX - this.offsetLeft, e.pageY - this.offsetTop, true);
 						redraw();
-					}
-					// Prevent the whole page from dragging if on mobile
-					e.preventDefault();
+					}					
 				},
 
 				release = function () {
 					paint = false;
-					redraw();
+					//redraw();
 				},
 
 				cancel = function () {
@@ -368,6 +294,18 @@ var drawingApp = (function () {
 				redraw();
 				createUserEvents();
 			}
+		},
+		
+		changeColor = function(color){
+				curColor=color;
+		},
+		
+		changeTool = function (tool){
+				curTool=tool;	
+		},
+		
+		changeSize = function (size){
+			curSize=size;	
 		},
 
 		// Creates a canvas element, loads images, adds events, and draws the canvas for the first time.
@@ -410,6 +348,41 @@ var drawingApp = (function () {
 
 			outlineImage.onload = resourceLoaded;
 			outlineImage.src = "images/pato.png";
+			
+			document.getElementById("purpura").addEventListener("click",function(){
+				changeColor(document.getElementById("purpura").value);
+			});
+			document.getElementById("verde").addEventListener("click",function(){
+				changeColor(document.getElementById("verde").value);
+			});	
+			document.getElementById("amarillo").addEventListener("click",function(){
+				changeColor(document.getElementById("amarillo").value);
+			});			
+			document.getElementById("marron").addEventListener("click",function(){
+				changeColor(document.getElementById("marron").value);
+			});	
+			document.getElementById("crayon").addEventListener("click",function(){
+				changeTool(document.getElementById("crayon").value);
+			});
+			document.getElementById("marcador").addEventListener("click",function(){
+				changeTool(document.getElementById("marcador").value);
+			});	
+			document.getElementById("borrador").addEventListener("click",function(){
+				changeTool(document.getElementById("borrador").value);
+			});			
+			document.getElementById("delgado").addEventListener("click",function(){
+				changeSize(document.getElementById("delgado").value);
+			});
+			document.getElementById("medio").addEventListener("click",function(){
+				changeSize(document.getElementById("medio").value);
+			});
+			document.getElementById("grueso").addEventListener("click",function(){
+				changeSize(document.getElementById("grueso").value);
+			});
+			document.getElementById("mgrueso").addEventListener("click",function(){
+				changeSize(document.getElementById("mgrueso").value);
+			});
+		
 		};
 
 	return {
