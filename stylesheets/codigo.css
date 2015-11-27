@@ -1,24 +1,124 @@
-
-button
-{
-	font-family: 'Pacifico', cursive;
+header {    
+    color: #659b41; 
+	font-family: 'Chelsea Market', cursive;
+	 font-size: 60px; 
+	 font-weight: normal; 
+	 line-height: 48px; 
+	 margin: 0 0 20px; 
+	 text-align: center; 
+	 text-shadow: 1px 1px 2px #082b34;
 }
-#purpura
-{
+
+body {
+	background: #16222A; 
+    background: -webkit-linear-gradient(to left, #16222A , #3A6073);  
+    background: linear-gradient(to left, #16222A , #3A6073);  
+	display: block; 
+	margin: 0 auto; 
+	width:1000px; 
+	
+ }
+ 
+ .tool{
+	background: #3A6073; 
+    background: -webkit-linear-gradient(to left, #3A6073 , #3A6073);  
+    background: linear-gradient(to left, #3A6073 , #3A6073);
+	border: 0px #3A6073;
+	border-radius: 80px;
+	height: 60px;
+	width: 60px;
+ }
+ 
+ 
+ 
+canvas {
+	background-color: #FFF;
+	border-radius: 15px;
+	padding-top: 20px;	
+	padding-left: 0;
+    padding-right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    display: inline-block; 
+	width:800px; 
+	position: relative; 
+	float: left;	
+}
+
+.imagen{
+	width:50px;
+	height:50px;
+	border-radius: 80px;
+}
+
+.imagenE{
+	width:50px;
+	height:50px;
+	border-radius: 80px;	
+}
+
+#col1 {
+	padding-top: 90px;
+	display: inline-block; width:200px;  position: relative; float: left;
+}
+
+.colorchanger{
+	border-radius: 60px;
+	width: 40px;
+	height: 40px;
+}
+
+.borderH{
+	background: #3A6073;
+	background: -webkit-linear-gradient(to left, #3A6073 , #3A6073);  
+    background: linear-gradient(to left, #3A6073 , #3A6073);
+	border: 0px #3A6073;
+	border-radius: 60px;
+	width: 70px;
+	height: 60px;
+	
+	padding-top: 5px;
+}
+
+.clearer{
+	background: #3A6073;
+	background: -webkit-linear-gradient(to left, #3A6073 , #3A6073);  
+    background: linear-gradient(to left, #3A6073 , #3A6073);
+	border: 0px #3A6073;
+	border-radius: 60px;
+	width: 70px;
+	height: 60px;	
+	/*padding-top: 25px;*/
+}
+
+#purpura{
 	background-color: #cb3594;
 }
 
-#verde
-{
+#verde{
 	background-color: #659b41;
 }
 
-#amarillo
-{
+#amarillo{
 	background-color: #ffcf33;
 }
 
-#marron
-{
+#marron{
 	background-color: #986928;	
+}
+
+#negro{
+	background-color: #000000;
+}
+
+#azul{
+	background-color: #3B98B8;
+}
+
+#rojo{
+	background-color: #BF3D55;
+}
+
+#naranja{
+	background-color: #F79914;
 }

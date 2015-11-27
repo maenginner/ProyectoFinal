@@ -152,11 +152,23 @@ var drawingApp = (function () {
 			document.getElementById("verde").addEventListener("click",function(){
 				changeColor(document.getElementById("verde").value);
 			});	
+			document.getElementById("negro").addEventListener("click",function(){
+				changeColor(document.getElementById("negro").value);
+			});	
+			document.getElementById("azul").addEventListener("click",function(){
+				changeColor(document.getElementById("azul").value);
+			});	
+			document.getElementById("rojo").addEventListener("click",function(){
+				changeColor(document.getElementById("rojo").value);
+			});	
 			document.getElementById("amarillo").addEventListener("click",function(){
 				changeColor(document.getElementById("amarillo").value);
 			});			
 			document.getElementById("marron").addEventListener("click",function(){
 				changeColor(document.getElementById("marron").value);
+			});	
+			document.getElementById("naranja").addEventListener("click",function(){
+				changeColor(document.getElementById("naranja").value);
 			});	
 			document.getElementById("crayon").addEventListener("click",function(){
 				changeTool(document.getElementById("crayon").value);
