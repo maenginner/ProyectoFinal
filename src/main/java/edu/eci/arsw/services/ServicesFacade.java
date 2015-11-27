@@ -1,5 +1,6 @@
 package edu.eci.arsw.services;
 
+import java.util.List;
 import edu.eci.arsw.model.Drawing;
 import edu.eci.arsw.model.PointSet;
 import org.springframework.stereotype.Service;
@@ -19,7 +20,7 @@ public class ServicesFacade {
 	}
 
 	public String getCorrectWord(){
-		drawing.getCorrectWord();
+		return drawing.getCorrectWord();
         }
 
 	public void setCorrectWord(String word){

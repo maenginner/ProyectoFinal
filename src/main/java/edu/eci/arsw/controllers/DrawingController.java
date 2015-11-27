@@ -36,7 +36,7 @@ public class DrawingController {
         services.addPointSet(p);
         return new ResponseEntity<>(HttpStatus.ACCEPTED);
     }
-
+/*
     @RequestMapping(method = RequestMethod.POST)        
     public ResponseEntity<?> setCorrectWord(@RequestBody String word) {       
         services.setCorrectWord(word);
@@ -48,7 +48,7 @@ public class DrawingController {
     public List<PointSet> allDrawingPoints() {       
         return services.getDrawingPoints();
     }
-
+*/
     @RequestMapping(method = RequestMethod.GET)
     public String getCorrectWord() {       
         return services.getCorrectWord();
