@@ -30,23 +30,21 @@ var drawingApp = (function () {
 			clickDrag = [];
 		},
 
-		// Redraws the canvas.
+		/*
+		*Pinta el canvas completamente
+		*/
 		redraw = function () {
 			
-			// For each point drawn
+
 			for (var i = 0; i < clickX.length; i ++) {
-				// Set the drawing path
 				context.beginPath();
-				// If dragging then draw a line between the two points
 				if (clickDrag[i] && i) {
 					context.moveTo(clickX[i - 1], clickY[i - 1]);
 				} else {
-					// The x position is moved over one pixel so a circle even if not dragging
 					context.moveTo(clickX[i] - 1, clickY[i]);
 				}
 				context.lineTo(clickX[i], clickY[i]);
 				
-				// Set the drawing color
 				if (clickTool[i] === "borrador") {
 					context.strokeStyle = 'white';
 				} else {
@@ -59,8 +57,7 @@ var drawingApp = (function () {
 			}
 			context.closePath();
 			context.restore();
-
-			// Overlay a crayon texture (if the current tool is crayon)
+			
 			if (curTool === "crayon") {
 				context.globalAlpha = 0.4;
 				context.drawImage(crayonTextureImage, 0, 0, canvasWidth, canvasHeight);
@@ -68,10 +65,10 @@ var drawingApp = (function () {
 			context.globalAlpha = 1; 			
 		},
 
-		// Adds a point to the drawing array.
-		// @param x
-		// @param y
-		// @param dragging
+		// Guarda las propiedades de dibujo en un punto
+		// @param x coordenada x
+		// @param y coordenada y
+		// @param dragging - Si el punto viene arrastrado
 		addClick = function (x, y, dragging) {
 
 			clickX.push(x);
@@ -82,10 +79,13 @@ var drawingApp = (function () {
 			clickDrag.push(dragging);
 		},
 
-		// Add mouse and touch event listeners to the canvas
+		/*
+		*Añade los mouseListeners a los eventos del
+		*mouse sobre el canvas
+		*/
 		createUserEvents = function () {
 			var press = function (e) {
-				// Mouse down location
+
 				var mouseX = e.pageX - this.offsetLeft,
 					mouseY = e.pageY - this.offsetTop;
 
@@ -109,12 +109,10 @@ var drawingApp = (function () {
 					paint = false;
 				};
 
-			// Add mouse event listeners to canvas element
 			canvas.addEventListener("mousedown", press, false);
 			canvas.addEventListener("mousemove", drag, false);
 			canvas.addEventListener("mouseup", release);
 			canvas.addEventListener("mouseout", cancel, false);
-
 		},
 		
 		changeColor = function(color){
@@ -129,7 +127,12 @@ var drawingApp = (function () {
 			curSize=size;	
 		},
 
-		// Creates a canvas element, loads images, adds events, and draws the canvas for the first time.
+		/*
+		*Inicializa los eventos del mouse
+		*para los botones de la vista y
+		*carga la textura de crayon. 
+		*Prepara el canvas, compatible con IE
+		*/
 		init = function () {
 
 			canvas = document.createElement('canvas');
