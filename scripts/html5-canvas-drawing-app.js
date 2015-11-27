@@ -1,9 +1,5 @@
-
-
 var drawingApp = (function () {
-
 	"use strict";
-
 	var canvas,
 		context,
 		canvasWidth = 800,
@@ -18,12 +14,11 @@ var drawingApp = (function () {
 		paint = false,
 		curColor = "#659b41",
 		curTool = "marker",
-		curSize = "normal",
-			
+		curSize = 5,
 
 		/*
 		*Limpia el canvas completamente, reiniciando los datos a
-		*sus valores iniciales
+		*sus valores iniciales 
 		*/
 		clearCanvas = function () {
 			context.clearRect(0, 0, canvasWidth, canvasHeight);
@@ -37,29 +32,9 @@ var drawingApp = (function () {
 
 		// Redraws the canvas.
 		redraw = function () {
-
-			var radius;
+			
 			// For each point drawn
 			for (var i = 0; i < clickX.length; i ++) {
-
-				// Set the drawing radius
-				switch (clickSize[i]) {
-				case "pequeño":
-					radius = 2;
-					break;
-				case "normal":
-					radius = 5;
-					break;
-				case "grande":
-					radius = 10;
-					break;
-				case "mgrande":
-					radius = 20;
-					break;
-				default:
-					break;
-				}
-
 				// Set the drawing path
 				context.beginPath();
 				// If dragging then draw a line between the two points
@@ -79,7 +54,7 @@ var drawingApp = (function () {
 				}
 				context.lineCap = "round";
 				context.lineJoin = "round";
-				context.lineWidth = radius;
+				context.lineWidth = clickSize[i];
 				context.stroke();
 			}
 			context.closePath();
@@ -121,14 +96,13 @@ var drawingApp = (function () {
 
 				drag = function (e) {
 					if (paint) {
-						addClick(e.pageX - this.offsetLeft, e.pageY - this.offsetTop, true);
+						addClick(e.pageX - this.offsetLeft, e.pageY - this.offsetTop, true);						
 						redraw();
 					}					
 				},
 
 				release = function () {
 					paint = false;
-					//redraw();
 				},
 
 				cancel = function () {
@@ -158,7 +132,6 @@ var drawingApp = (function () {
 		// Creates a canvas element, loads images, adds events, and draws the canvas for the first time.
 		init = function () {
 
-			// Create the canvas (Neccessary for IE because it doesn't know what a canvas element is)
 			canvas = document.createElement('canvas');
 			canvas.setAttribute('width', canvasWidth);
 			canvas.setAttribute('height', canvasHeight);
@@ -167,9 +140,7 @@ var drawingApp = (function () {
 			if (typeof G_vmlCanvasManager !== "undefined") {
 				canvas = G_vmlCanvasManager.initElement(canvas);
 			}
-			context = canvas.getContext("2d"); // Grab the 2d canvas context
-			// Note: The above code is a workaround for IE 8 and lower. Otherwise we could have used:
-			//     context = document.getElementById('canvas').getContext("2d");
+			context = canvas.getContext("2d"); // Grab the 2d canvas context			
 
 			// Load images
 			crayonTextureImage.src = "images/crayon-texture.png";
