@@ -16,7 +16,7 @@ public class PointSet {
 
 
     //Constructors
-    public Drawing(int x, int y, String color, String tool, int size, boolean drag ){
+    public PointSet(int x, int y, String color, String tool, int size, boolean drag ){
 	this.x=x;
 	this.y=y;
 	this.color=color;
