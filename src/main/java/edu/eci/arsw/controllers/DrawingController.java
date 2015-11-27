@@ -31,25 +31,25 @@ public class DrawingController {
         return "REST API OK";        
     }
     
-    @RequestMapping(method = RequestMethod.POST)        
+    @RequestMapping(method = RequestMethod.POST, value="/pointset")        
     public ResponseEntity<?> addPointSet(@RequestBody PointSet p) {       
         services.addPointSet(p);
         return new ResponseEntity<>(HttpStatus.ACCEPTED);
     }
-/*
-    @RequestMapping(method = RequestMethod.POST)        
+
+    @RequestMapping(method = RequestMethod.POST, value="/keyword")        
     public ResponseEntity<?> setCorrectWord(@RequestBody String word) {       
         services.setCorrectWord(word);
         return new ResponseEntity<>(HttpStatus.ACCEPTED);
     }
 
     
-    @RequestMapping(method = RequestMethod.GET)
+    @RequestMapping(method = RequestMethod.GET, value="/points")
     public List<PointSet> allDrawingPoints() {       
         return services.getDrawingPoints();
     }
-*/
-    @RequestMapping(method = RequestMethod.GET)
+
+    @RequestMapping(method = RequestMethod.GET, value="/getkey")
     public String getCorrectWord() {       
         return services.getCorrectWord();
     }
