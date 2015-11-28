@@ -52,6 +52,5 @@ public class Drawing {
 
    public static Drawing getInstance(){
 	return drawing;
-    }
-    
+    }    
 }

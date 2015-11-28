@@ -52,7 +52,5 @@ public class DrawingController {
     @RequestMapping(method = RequestMethod.GET, value="/getkey")
     public String getCorrectWord() {       
         return services.getCorrectWord();
-    }
-    
-    
+    } 
 }
