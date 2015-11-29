@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Create HTML5 Canvas JavaScript Drawing App Example</title>
+    <link rel="stylesheet" href="stylesheets/codigo.css">
+    <link href='https://fonts.googleapis.com/css?family=Chelsea+Market&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+  </head>
+  <body>
+    <header>
+      <h1>PICTOGRAPHIC</h1>
+    </header>
+    <div id="col1">
+       <div id="col3">      
+           <input type="text" id="guessword" name="guessing" placeholder="ESCRIBE AQUI!"><br/><br/>
+           <button type="submit" id="envio" class="enviar">Intenta</button>
+       </div>
+       <div id="col2">
+        <button id="crayon" class="tool" type="button" value="crayon"><img src="images/crayola.png" class="imagen" ></button>
+        <button id="marcador" class="tool" type="button" value="marcador"><img src="images/marcador.jpg" class="imagen" ></button>
+        <button id="borrador" class="tool" type="button" value="borrador"><img src="images/borrador.jpg" class="imagen" ></button>
+        <br/>
+        <br/>
+        <button id="purpura" class="colorchanger" type="button" value="#cb3594"></button>
+        <button id="verde" class="colorchanger" type="button" value="#659b41"></button>
+        <button id="amarillo" class="colorchanger" type="button" value="#ffcf33"></button>
+        <button id="marron" class="colorchanger" type="button" value="#986928"></button>
+        <button id="negro" class="colorchanger" type="button" value="#000000"></button>
+        <button id="azul" class="colorchanger" type="button" value="#3B98B8"></button>
+        <button id="rojo" class="colorchanger" type="button" value="#BF3D55"></button>
+        <button id="naranja" class="colorchanger" type="button" value="#F79914"></button>
+        <br/>
+        <br/>
+        <button id="delgado" type="button" value="2" class="borderH"><img src="images/delgada.png" class="imagenE"></button>
+        <button id="medio" type="button" value="5" class="borderH"><img src="images/medio.png" class="imagenE"></button>
+        <button id="grueso" type="button" value="10" class="borderH"><img src="images/grueso.png" class="imagenE"></button>
+        <button id="mgrueso" type="button" value="20" class="borderH"><img src="images/mgrueso.png" class="imagenE"></button>
+        <br/>
+        <br/>
+        <br/>
+        <button id="clear" class="clearer" type="button" value="clearAll"><img src="images/basura.png" class="imagenE"></button>
+      </div>      
+    </div>
+    
+     <div class="container" id="canvasDiv"></div>
+     <div id="initialButtons">
+       <br/><br/><br/><br/><br/><br/><br/><br/>
+       <button id="drawer" type="button" class="inicio">¿QUIERES DIBUJAR?</button>
+       <button id="guesser" type="button" class="inicio">¿QUIERES ADIVINAR?</button>
+     </div>
+    
+    <script type="text/javascript" src="scripts/drawerScript.js"></script>
+    <script type="text/javascript" src="scripts/guesserScript.js"></script>
+    <script type="text/javascript" src="scripts/startScript.js"></script>
+    <script type="text/javascript">
+       startApp.start();
+	</script>
+  </body>
+</html>
