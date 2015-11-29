@@ -62,7 +62,8 @@ var drawingApp = (function () {
 				context.globalAlpha = 0.4;
 				context.drawImage(crayonTextureImage, 0, 0, canvasWidth, canvasHeight);
 			}
-			context.globalAlpha = 1; 			
+			context.globalAlpha = 1; 
+			sendMessage();			
 		},
 
 		// Guarda las propiedades de dibujo en un punto
@@ -91,12 +92,14 @@ var drawingApp = (function () {
 
 				paint = true;
 				addClick(mouseX, mouseY, false);
+			    //communication.sendMessage();
 				redraw();
 			},
 
 				drag = function (e) {
 					if (paint) {
-						addClick(e.pageX - this.offsetLeft, e.pageY - this.offsetTop, true);						
+						addClick(e.pageX - this.offsetLeft, e.pageY - this.offsetTop, true);
+						//communication.sendMessage();						
 						redraw();
 					}					
 				},
@@ -195,6 +198,7 @@ var drawingApp = (function () {
 				changeSize(document.getElementById("mgrueso").value);
 			});		
 			document.getElementById("clear").addEventListener("click",clearCanvas);
+
 		};
 
 	return {

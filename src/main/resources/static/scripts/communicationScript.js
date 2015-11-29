@@ -1,54 +1,44 @@
-var stompClient = null;
+var communication = (function(){
+    var stompClient = null,
 
-function setConnected(connected) {
-    document.getElementById('connect').disabled = connected;
-
-    document.getElementById('disconnect').disabled = !connected;
-    document.getElementById('conversationDiv').style.visibility = connected ? 'visible' : 'hidden';
-    document.getElementById('response').innerHTML = '';
-}
-
-function connect() {
+    connect=function () {
+    alert("aqui estoy");
     var socket = new SockJS('/ws');
     stompClient = Stomp.over(socket);
     stompClient.connect({}, function(frame) {
-    setConnected(true);
-    console.log('Connected: ' + frame);
-    stompClient.subscribe('/topic/messages', function(serverMessage){
-        showServerMessage(JSON.parse(serverMessage.body).content);
+        console.log('Connected: ' + frame);
+        stompClient.subscribe('/topic/messages', function(serverMessage){
+            showServerMessage(JSON.parse(serverMessage.body).content);
+        });
     });
-    });
-}
+},
 
-function disconnect() {
+disconect=function () {
     if (stompClient != null) {
     stompClient.disconnect();
     }
     setConnected(false);
     console.log("Disconnected");
-}
+},
 
-function sendMessage() {
-    var message = document.getElementById('message').value;
-    stompClient.send("/app/message", {}, JSON.stringify({ 'message': "10"+","+"15"+","+"#3564ab"+","+"eraser"+","+"huge"+","+"false"}));
-}
+sendMessage=function() {
+    var index=drawingApp.clickX.length-1;
+    var message=drawingApp.clickX[index]+","+drawingApp.clickY[index]+","+drawingApp.clickColor[index]+","+drawingApp.clickTool[index]+","+drawingApp.clickSize[index]+","+drawingApp.clickDrag[index];
+    stompClient.send("/app/message", {}, JSON.stringify({ 'message': message}));
+},
 
-function showServerMessage(message) {
-    var response = document.getElementById('response');
-    var p = document.createElement('p');
-    p.style.wordWrap = 'break-word';
-    p.appendChild(document.createTextNode(message));
-    response.appendChild(p);
-}
+showServerMessage=function(message) {
+    var mArray=message.split(",");
+    guesserApp.addPoint(mArray[0],mArray[1],mArray[2],mArray[3],mArray[4],mArray[5]);
+},
 
-function init() {
-   var btnSend = document.getElementById('send');
-   btnSend.onclick=sendMessage;
-   var btnConnect = document.getElementById('connect');
-   btnConnect.onclick=connect;
-   var btnDisconnect = document.getElementById('disconnect');
-   btnDisconnect.onclick=disconnect;
-   disconnect();
-}
+initM=function() {
+   connect();
+};
+return {
+  initM:initM  
+};
+}());
 
-window.onload = init;
+
+window.onload=communication.initM();

@@ -60,6 +60,7 @@ var guesserApp = (function () {
 		pointsSize.push(size);
 		pointsColor.push(color);
 		pointsDrag.push(drag);
+		draw();
 	},
 
 	guessWord = function(){
@@ -79,9 +80,11 @@ var guesserApp = (function () {
 		ctx = cnv.getContext("2d"); 		
 		crayonTI.src = "images/crayon-texture.png";
 		document.getElementById("envio").addEventListener("click",guessWord);
+		
 	};
 	return{
 		initialize:initialize
 	};
+	
 	
 }());
