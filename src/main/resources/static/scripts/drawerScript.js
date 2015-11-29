@@ -92,14 +92,14 @@ var drawingApp = (function () {
 
 				paint = true;
 				addClick(mouseX, mouseY, false);
-			    //communication.sendMessage();
+                                communication.sendMessage();
 				redraw();
 			},
 
 				drag = function (e) {
 					if (paint) {
 						addClick(e.pageX - this.offsetLeft, e.pageY - this.offsetTop, true);
-						//communication.sendMessage();						
+						communication.sendMessage();						
 						redraw();
 					}					
 				},
@@ -198,7 +198,7 @@ var drawingApp = (function () {
 				changeSize(document.getElementById("mgrueso").value);
 			});		
 			document.getElementById("clear").addEventListener("click",clearCanvas);
-
+                        communication.initM();
 		};
 
 	return {

@@ -80,7 +80,7 @@ var guesserApp = (function () {
 		ctx = cnv.getContext("2d"); 		
 		crayonTI.src = "images/crayon-texture.png";
 		document.getElementById("envio").addEventListener("click",guessWord);
-		
+		communication.initM();
 	};
 	return{
 		initialize:initialize

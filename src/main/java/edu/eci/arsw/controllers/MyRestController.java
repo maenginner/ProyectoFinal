@@ -1,4 +1,4 @@
-package edu.eci.arsw.controller;
+package edu.eci.arsw.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

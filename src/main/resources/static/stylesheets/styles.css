@@ -1,17 +1,17 @@
 header {    
-    color: #659b41; 
+        color: #659b41; 
 	font-family: 'Chelsea Market', cursive;
-	 font-size: 60px; 
-	 font-weight: normal; 
-	 line-height: 48px; 
-	 margin: 0 0 20px; 
-	 text-align: center; 
-	 text-shadow: 1px 1px 2px #082b34;
+	font-size: 60px; 
+	font-weight: normal; 
+	line-height: 48px; 
+	margin: 0 0 20px; 
+	text-align: center; 
+	text-shadow: 1px 1px 2px #082b34;
 }
 body {
 	background: #16222A; 
-    background: -webkit-linear-gradient(to left, #16222A , #3A6073);  
-    background: linear-gradient(to left, #16222A , #3A6073);  
+        background: -webkit-linear-gradient(to left, #16222A , #3A6073);  
+        background: linear-gradient(to left, #16222A , #3A6073);  
 	display: block; 
 	margin: 0 auto; 
 	width:1000px; 
@@ -22,18 +22,18 @@ body {
 	border-radius: 15px;
 	padding-top: 20px;	
 	padding-left: 0;
-    padding-right: 0;
-    margin-left: auto;
-    margin-right: auto;
-    display: inline-block; 
+        padding-right: 0;
+        margin-left: auto;
+        margin-right: auto;
+        display: inline-block; 
 	width:800px; 
 	position: relative; 
 	float: left;	
 }
  .tool{
 	background: #3A6073; 
-    background: -webkit-linear-gradient(to left, #3A6073 , #3A6073);  
-    background: linear-gradient(to left, #3A6073 , #3A6073);
+        background: -webkit-linear-gradient(to left, #3A6073 , #3A6073);  
+        background: linear-gradient(to left, #3A6073 , #3A6073);
 	border: 0px #3A6073;
 	border-radius: 80px;
 	height: 60px;
@@ -57,7 +57,7 @@ body {
 .borderH{
 	background: #3A6073;
 	background: -webkit-linear-gradient(to left, #3A6073 , #3A6073);  
-    background: linear-gradient(to left, #3A6073 , #3A6073);
+        background: linear-gradient(to left, #3A6073 , #3A6073);
 	border: 0px #3A6073;
 	border-radius: 60px;
 	width: 70px;
@@ -67,7 +67,7 @@ body {
 .clearer{
 	background: #3A6073;
 	background: -webkit-linear-gradient(to left, #3A6073 , #3A6073);  
-    background: linear-gradient(to left, #3A6073 , #3A6073);
+        background: linear-gradient(to left, #3A6073 , #3A6073);
 	border: 0px #3A6073;
 	border-radius: 60px;
 	width: 70px;
@@ -77,40 +77,40 @@ body {
 	font-family: 'Chelsea Market', cursive;
 	font-size: 35px;
 	position: relative;
-    background: #cc6a6a;
-    background-image: -webkit-linear-gradient(#cc6a6a, #f0afbc);
-    background-image: -o-linear-gradient(#cc6a6a, #f0afbc);
-    background-image: linear-gradient(#cc6a6a, #f0afbc);
-    -webkit-border-radius: 9;
-    -moz-border-radius: 9;
-    border-radius: 9px;
-    color: #000000;
-    padding: 10px 20px 10px 20px;
-    border: solid #cc6a6a 3px;
-    text-decoration: none;
+        background: #cc6a6a;
+        background-image: -webkit-linear-gradient(#cc6a6a, #f0afbc);
+        background-image: -o-linear-gradient(#cc6a6a, #f0afbc);
+        background-image: linear-gradient(#cc6a6a, #f0afbc);
+        -webkit-border-radius: 9;
+        -moz-border-radius: 9;
+        border-radius: 9px;
+        color: #000000;
+        padding: 10px 20px 10px 20px;
+        border: solid #cc6a6a 3px;
+        text-decoration: none;
 	left: -75px; 
 }
 .inicio:hover{
 	background: #d45b61;
-    background-image: -webkit-linear-gradient(top, #d45b61, #ad2929);
-    background-image: -moz-linear-gradient(top, #d45b61, #ad2929);
-    background-image: -ms-linear-gradient(top, #d45b61, #ad2929);
-    background-image: -o-linear-gradient(top, #d45b61, #ad2929);
-    background-image: linear-gradient(to bottom, #d45b61, #ad2929);
-    text-decoration: none;
+        background-image: -webkit-linear-gradient(top, #d45b61, #ad2929);
+        background-image: -moz-linear-gradient(top, #d45b61, #ad2929);
+        background-image: -ms-linear-gradient(top, #d45b61, #ad2929);
+        background-image: -o-linear-gradient(top, #d45b61, #ad2929);
+        background-image: linear-gradient(to bottom, #d45b61, #ad2929);
+        text-decoration: none;
 }
 .enviar{
 	font-family: 'Chelsea Market', cursive;
 	font-size: 35px;
 	position: relative;
-    background: #659b41;
+        background: #659b41;
 	-webkit-border-radius: 9;
-    -moz-border-radius: 9;
-    border-radius: 9px;
-    color: #000000;
-    padding: 10px 20px 10px 20px;
-    border: solid #659b90 3px;
-    text-decoration: none;
+        -moz-border-radius: 9;
+        border-radius: 9px;
+        color: #000000;
+        padding: 10px 20px 10px 20px;
+        border: solid #659b90 3px;
+        text-decoration: none;
 }
 #col1{
 	padding-top: 90px;
@@ -151,33 +151,33 @@ body {
 	background-color: #F79914;
 }
 #guessword{
-   display: inline-block;
-  -webkit-box-sizing: content-box;
-  -moz-box-sizing: content-box;
-  box-sizing: content-box;
-  padding: 10px 10px 5px 10px;
-  border: 1px solid #b7b7b7;
-  -webkit-border-radius: 3px;
-  border-radius: 3px;
-  font-family: 'Chelsea Market', cursive;
-  font-size: 15px;
-  color: rgba(255,255,255,1);
-  -o-text-overflow: clip;
-  text-overflow: clip;
-  background: -webkit-linear-gradient(0deg, rgba(100,100,100,1) 0, rgba(0,0,0,1) 100%), rgba(252,252,252,1);
-  background: -moz-linear-gradient(90deg, rgba(100,100,100,1) 0, rgba(0,0,0,1) 100%), rgba(252,252,252,1);
-  background: linear-gradient(90deg, rgba(100,100,100,1) 0, rgba(0,0,0,1) 100%), rgba(252,252,252,1);
-  background-position: 50% 50%;
-  -webkit-background-origin: padding-box;
-  background-origin: padding-box;
-  -webkit-background-clip: border-box;
-  background-clip: border-box;
-  -webkit-background-size: auto auto;
-  background-size: auto auto;
-  -webkit-box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.2) inset;
-  box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.2) inset;
-  -webkit-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
-  -moz-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
-  -o-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
-  transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+        display: inline-block;
+        -webkit-box-sizing: content-box;
+        -moz-box-sizing: content-box;
+        box-sizing: content-box;
+        padding: 10px 10px 5px 10px;
+        border: 1px solid #b7b7b7;
+        -webkit-border-radius: 3px;
+        border-radius: 3px;
+        font-family: 'Chelsea Market', cursive;
+        font-size: 15px;
+        color: rgba(255,255,255,1);
+        -o-text-overflow: clip;
+        text-overflow: clip;
+        background: -webkit-linear-gradient(0deg, rgba(100,100,100,1) 0, rgba(0,0,0,1) 100%), rgba(252,252,252,1);
+        background: -moz-linear-gradient(90deg, rgba(100,100,100,1) 0, rgba(0,0,0,1) 100%), rgba(252,252,252,1);
+        background: linear-gradient(90deg, rgba(100,100,100,1) 0, rgba(0,0,0,1) 100%), rgba(252,252,252,1);
+        background-position: 50% 50%;
+        -webkit-background-origin: padding-box;
+        background-origin: padding-box;
+        -webkit-background-clip: border-box;
+        background-clip: border-box;
+        -webkit-background-size: auto auto;
+        background-size: auto auto;
+        -webkit-box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.2) inset;
+        box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.2) inset;
+        -webkit-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+        -moz-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+        -o-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+        transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
 }
