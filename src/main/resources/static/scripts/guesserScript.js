@@ -40,7 +40,6 @@ function initialize(){
 	ctx = cnv.getContext("2d"); 
 	crayonTI.src = "images/crayon-texture.png";
 	document.getElementById("envio").addEventListener("click",guessWord);
-        initM();
 };
 	
  function addPoint(x, y, color, tool, size, drag) {

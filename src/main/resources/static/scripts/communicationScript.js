@@ -27,7 +27,9 @@
     function showServerMessage(message) {
         var mArray=message.split(",");
         console.log(mArray[5]==="true"||mArray[5]==="false");
-        if (mArray[5]==="true"||mArray[5]==="false"){
+        if (message==="1"){
+            changeDrawer(message);
+        }else if (mArray[5]==="true"||mArray[5]==="false"){
             addPoint(mArray[0],mArray[1],mArray[2],mArray[3],mArray[4],mArray[5]);
         }else{
             compareWords(message);
