@@ -1,13 +1,13 @@
 var startApp=(function(){
 	"use strict";
 	var beDrawer=function(){
-		drawingApp.init();
+                init();
 		document.getElementById('col2').style.visibility='visible';
 		document.getElementById('initialButtons').style.visibility='hidden';
 	},
 	
 	beGuesser=function (){
-		guesserApp.initialize();
+		initialize();
 		document.getElementById('col3').style.visibility='visible';
 		document.getElementById('initialButtons').style.visibility='hidden';
 	},

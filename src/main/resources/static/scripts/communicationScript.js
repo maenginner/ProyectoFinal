@@ -1,7 +1,7 @@
-var communication = (function(){
-    var stompClient = null,
 
-    connect=function () {
+    var stompClient = null;
+    
+    function connect () {
     var socket = new SockJS('/ws');
     stompClient = Stomp.over(socket);
         stompClient.connect({}, function(frame) {
@@ -10,37 +10,31 @@ var communication = (function(){
                 showServerMessage(JSON.parse(serverMessage.body).content);
             });
         });
-        alert("aqui estoy");
+    };
 
-    },
-
-    disconect=function () {
+    function disconnect() {
         if (stompClient != null) {
         stompClient.disconnect();
         }
         setConnected(false);
         console.log("Disconnected");
-    },
+    };
 
-    sendMessage=function() {
-        var index=drawingApp.clickX.length-1;
-        var message=drawingApp.clickX[index]+","+drawingApp.clickY[index]+","+drawingApp.clickColor[index]+","+drawingApp.clickTool[index]+","+drawingApp.clickSize[index]+","+drawingApp.clickDrag[index];
+    function sendMessage () {
+        var index=clickX.length-1;
+        var message=clickX[index]+","+clickY[index]+","+clickColor[index]+","+clickTool[index]+","+clickSize[index]+","+clickDrag[index];
         stompClient.send("/app/message", {}, JSON.stringify({ 'message': message}));
-    },
+    };
 
-    showServerMessage=function(message) {
+    function showServerMessage(message) {
         var mArray=message.split(",");
-        guesserApp.addPoint(mArray[0],mArray[1],mArray[2],mArray[3],mArray[4],mArray[5]);
-    },
+        addPoint(mArray[0],mArray[1],mArray[2],mArray[3],mArray[4],mArray[5]);
+    };
 
-    initM=function() {
+    function initM() {
        connect();
     };
     
-    return {
-      initM:initM  
-    };
-}());
 
 
 //window.onload=communication.initM();
