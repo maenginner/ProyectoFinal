@@ -35,6 +35,7 @@ function clearCanvas() {
 	clickTool = [];
 	clickSize = [];
 	clickDrag = [];
+        sendMessage("deleteall");
 };
 
 /*

@@ -31,6 +31,8 @@
             changeDrawer(message);
         }else if (mArray[5]==="true"||mArray[5]==="false"){
             addPoint(mArray[0],mArray[1],mArray[2],mArray[3],mArray[4],mArray[5]);
+        }else if (message==="deleteall"){
+            canvasClr();
         }else{
             compareWords(message);
         }        
