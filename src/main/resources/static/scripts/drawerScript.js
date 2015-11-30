@@ -89,8 +89,9 @@ function addClick (x, y, dragging) {
 };
 
 function compareWords(word){
-    if (word===correctWord){
-        console.log("HAY GANADOR!!!!!!!");
+    var newW=word.split(":");
+    if (newW[1]===correctWord){
+        console.log("HAY GANADOR!!!!!!! "+newW[0]);
     }
 };
 /*

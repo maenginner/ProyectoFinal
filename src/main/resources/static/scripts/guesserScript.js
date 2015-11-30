@@ -10,7 +10,7 @@ var ctx;
 var cnvW = 800;
 var cnvH = 600;
 var crayonTI= new Image();
-		
+var name="";
 	
 function canvasClr() {
 	ctx.clearRect(0, 0, cnvW,cnvH);
@@ -25,7 +25,7 @@ function canvasClr() {
 
 function guessWord (){
 	var guessing=document.getElementById("guessword").value;
-        sendMessage(guessing);
+        sendMessage(name+":"+guessing);
 };
 	
 function initialize(){
@@ -40,6 +40,7 @@ function initialize(){
 	ctx = cnv.getContext("2d"); 
 	crayonTI.src = "images/crayon-texture.png";
 	document.getElementById("envio").addEventListener("click",guessWord);
+        name=document.getElementById("nombre").value;
 };
 	
  function addPoint(x, y, color, tool, size, drag) {

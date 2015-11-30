@@ -7,7 +7,7 @@ var startApp=(function(){
                 document.getElementById("en").addEventListener("click",beDrawer);
                 document.getElementById('initialButtons').style.visibility='hidden';
                  if(alreadyDrawer==="1"){                    
-                    beGuesser();                    
+                    preGuesser();                    
                 }
         },
 	 beDrawer=function(){    
@@ -17,10 +17,15 @@ var startApp=(function(){
                
 	},
 	
+        preGuesser = function(){
+                document.getElementById("insertWord").style.visibility='hidden';
+                document.getElementById('initialButtons').style.visibility='hidden';
+                document.getElementById("insertName").style.visibility='visible';
+                document.getElementById("nam").addEventListener("click",beGuesser);                
+        },
 	beGuesser=function (){
 		initialize();
-		document.getElementById('col3').style.visibility='visible';
-		document.getElementById('initialButtons').style.visibility='hidden';
+		document.getElementById('col3').style.visibility='visible';		
                 document.getElementById("insertWord").style.visibility='hidden';
 	},
 	
@@ -30,8 +35,9 @@ var startApp=(function(){
 		document.getElementById("col3").style.visibility='hidden';
 		document.getElementById("initialButtons").style.visibility='visible';
                 document.getElementById("insertWord").style.visibility='hidden';
+                document.getElementById("insertName").style.visibility='hidden';
 		document.getElementById("drawer").addEventListener("click",preDrawer);
-		document.getElementById("guesser").addEventListener("click",beGuesser);	
+		document.getElementById("guesser").addEventListener("click",preGuesser);	
 	};
 	
 	return{
