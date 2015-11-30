@@ -150,7 +150,7 @@ body {
 #naranja{
 	background-color: #F79914;
 }
-#guessword{
+.guessword{
         display: inline-block;
         -webkit-box-sizing: content-box;
         -moz-box-sizing: content-box;

@@ -15,6 +15,7 @@ var paint = false;
 var curColor = "#659b41";
 var curTool = "marker";
 var curSize = 5;
+var correctWord="";
 /*
 *Limpia el canvas completamente, reiniciando los datos a
 *sus valores iniciales 
@@ -74,10 +75,18 @@ function addClick (x, y, dragging) {
 	clickColor.push(curColor);
 	clickSize.push(curSize);
 	clickDrag.push(dragging);  
-        sendMessage();
+        var index=clickX.length-1;
+        var message=clickX[index]+","+clickY[index]+","+clickColor[index]+","+clickTool[index]+","+clickSize[index]+","+clickDrag[index];
+        sendMessage(message);
         redraw(clickX, clickY, context, clickColor, clickDrag, clickTool, clickSize, canvasWidth,canvasHeight,crayonTextureImage);
 };
 
+function compareWords(word){
+    console.log("funciona "+word);
+    if (word===correctWord){
+        console.log("HAY GANADOR!!!!!!!");
+    }
+};
 /*
 *Añade los mouseListeners a los eventos del
 *mouse sobre el canvas
@@ -191,6 +200,8 @@ function init() {
 		changeSize(document.getElementById("mgrueso").value);
 	});		
 	document.getElementById("clear").addEventListener("click",clearCanvas);
+        correctWord=document.getElementById("palabra").value;
+        console.log(correctWord);
         initM();
 };
 

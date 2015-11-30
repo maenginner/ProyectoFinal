@@ -1,9 +1,16 @@
 var startApp=(function(){
 	"use strict";
-	var beDrawer=function(){
-                init();
+        
+        var preDrawer=function (){
+                document.getElementById("insertWord").style.visibility='visible';
+                document.getElementById("en").addEventListener("click",beDrawer);
+                document.getElementById('initialButtons').style.visibility='hidden';
+        },
+	 beDrawer=function(){    
+                 init();
+                document.getElementById("insertWord").style.visibility='hidden';
 		document.getElementById('col2').style.visibility='visible';
-		document.getElementById('initialButtons').style.visibility='hidden';
+               
 	},
 	
 	beGuesser=function (){
@@ -16,7 +23,8 @@ var startApp=(function(){
 		document.getElementById("col2").style.visibility='hidden';
 		document.getElementById("col3").style.visibility='hidden';
 		document.getElementById("initialButtons").style.visibility='visible';
-		document.getElementById("drawer").addEventListener("click",beDrawer);
+                document.getElementById("insertWord").style.visibility='hidden';
+		document.getElementById("drawer").addEventListener("click",preDrawer);
 		document.getElementById("guesser").addEventListener("click",beGuesser);
 			
 	};

@@ -20,15 +20,18 @@
         console.log("Disconnected");
     };
 
-    function sendMessage () {
-        var index=clickX.length-1;
-        var message=clickX[index]+","+clickY[index]+","+clickColor[index]+","+clickTool[index]+","+clickSize[index]+","+clickDrag[index];
+    function sendMessage (message) {        
         stompClient.send("/app/message", {}, JSON.stringify({ 'message': message}));
     };
 
     function showServerMessage(message) {
         var mArray=message.split(",");
-        addPoint(mArray[0],mArray[1],mArray[2],mArray[3],mArray[4],mArray[5]);
+        console.log(mArray[5]==="true"||mArray[5]==="false");
+        if (mArray[5]==="true"||mArray[5]==="false"){
+            addPoint(mArray[0],mArray[1],mArray[2],mArray[3],mArray[4],mArray[5]);
+        }else{
+            compareWords(message);
+        }        
     };
 
     function initM() {

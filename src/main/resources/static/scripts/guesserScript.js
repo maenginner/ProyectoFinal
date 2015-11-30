@@ -25,6 +25,7 @@ function canvasClr() {
 
 function guessWord (){
 	var guessing=document.getElementById("guessword").value;
+        sendMessage(guessing);
 };
 	
 function initialize(){
