@@ -18,7 +18,13 @@ var curSize = 5;
 var correctWord="";
 var alreadyDrawer="0";
 
-
+/**
+ * 
+ * @param message Indica si hay al menos
+ * un usuario de la aplicación que se ha 
+ * propuesto como dibujante. Solo puede
+ * haber un dibujante por partida.
+ */
 function changeDrawer(message){
     alreadyDrawer=message;
 };
@@ -38,9 +44,19 @@ function clearCanvas() {
         sendMessage("deleteall");
 };
 
-/*
-*Pinta el canvas completamente
-*/
+/**
+ * 
+ * @param xcoord Coordenadas X del dibujo
+ * @param ycoord Coordenadas Y del dibujo
+ * @param cont Contexto 2d del canvas
+ * @param colors Colores de cada punto del dibujo
+ * @param dragg Indica si los puntos son por evento click o drag
+ * @param tools Herramienta pertinente a cada punto
+ * @param sizeP Tamanio con que se pinta cada punto
+ * @param wid Alto del canvas
+ * @param hei Ancho del canvas
+ * @param texti Referencia a la imagen de textura de crayon
+ */
 function redraw(xcoord, ycoord, cont, colors, dragg, tools, sizeP, wid, hei, texti ){
 	for (var i = 0; i < xcoord.length; i ++) {
 		cont.beginPath();
@@ -89,12 +105,17 @@ function addClick (x, y, dragging) {
         redraw(clickX, clickY, context, clickColor, clickDrag, clickTool, clickSize, canvasWidth,canvasHeight,crayonTextureImage);
 };
 
+/**
+ * 
+ * @param word Palabra que se compara con la respuesta
+ */
 function compareWords(word){
     var newW=word.split(":");
     if (newW[1].toUpperCase().trim()===correctWord.toUpperCase().trim()){
         sendMessage("WIN,"+newW[0]);
     }
 };
+
 /*
 *Añade los mouseListeners a los eventos del
 *mouse sobre el canvas
@@ -126,12 +147,21 @@ function createUserEvents () {
 		canvas.addEventListener("mouseup", release);
 		canvas.addEventListener("mouseout", cancel, false);
 };
-		
+
+/**
+ * 
+ * @param color Nuevo color a usar al cambiarlo en la 
+ * interfaz gráfica
+ */
 function changeColor(color){
 	curColor=color;
 };
 
 
+/**
+ * Muestra el jugador ganador y termina la partida
+ * @param message Nombre del ganador
+ */
 function finishGame(message){
     var content="!! "+message+" ha ganado!!"
     console.log(content.toUpperCase());
@@ -141,11 +171,21 @@ function finishGame(message){
     document.getElementById("winner").innerHTML=content.toUpperCase();
     document.getElementById("finished").style.visibility='visible'; 
 };
-		
+
+/**
+ * 
+ * @param tool Nueva herramienta a usar al cambiarla en la 
+ * interfaz gráfica
+ */
 function changeTool(tool){
 	curTool=tool;	
 };
-		
+
+/**
+ * 
+ * @param size Nuevo tamanio a usar al cambiarlo en la 
+ * interfaz gráfica
+ */
 function changeSize (size){
 	curSize=size;	
 };
@@ -220,7 +260,6 @@ function init() {
         correctWord=document.getElementById("palabra").value;
 
         sendMessage("1");
-
 };
 
 

@@ -43,7 +43,3 @@
     function initM() {
        connect();
     };
-    
-
-
-//window.onload=communication.initM();

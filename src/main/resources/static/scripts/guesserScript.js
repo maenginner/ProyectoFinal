@@ -11,7 +11,11 @@ var cnvW = 800;
 var cnvH = 600;
 var crayonTI= new Image();
 var name="";
-	
+
+/**
+ * Función llamada por ClearCanvas a través de un mensaje
+ * enviado al tópico cuando quien dibuja decide borrar todo
+ */
 function canvasClr() {
 	ctx.clearRect(0, 0, cnvW,cnvH);
 	pointsX = []; 
@@ -20,19 +24,23 @@ function canvasClr() {
 	pointsTool = [];
 	pointsSize = [];
 	pointsDrag = [];
-        document.getElementById("col3").style.visibility='visible';
-
 };
 
-
-
-
-
+/**
+ * Toma la palabra que se presume, es
+ * la correcta y la envía para ser
+ * consultada
+ */
 function guessWord (){
 	var guessing=document.getElementById("guessword").value;
         sendMessage(name+":"+guessing);
 };
-	
+
+/**
+ * Inicializa el canvas para quien
+ * juega como adivinador (COMPATIBLE CON IE)
+ * Almacena el  nombre del jugador
+ */
 function initialize(){
 	cnv = document.createElement('canvas');
 	cnv.setAttribute('width', cnvW);
@@ -47,7 +55,17 @@ function initialize(){
 	document.getElementById("envio").addEventListener("click",guessWord);
         name=document.getElementById("nombre").value;
 };
-	
+
+/**
+ * Añade un punto cuando quien pinta, dibuja
+ * un nuevo punto sobre el canvas
+ * @param  x coordenada x
+ * @param  y coordenada y
+ * @param  color color del punto
+ * @param  tool herramienta con que se pinta el punto
+ * @param  size tamaño con que se pinta el punto
+ * @param  drag indica si viene de evento de arrastre de mouse o no
+ */
  function addPoint(x, y, color, tool, size, drag) {
 
 	pointsX.push(x);
