@@ -19,8 +19,13 @@ function canvasClr() {
 	pointsColor = [];
 	pointsTool = [];
 	pointsSize = [];
-	pointsDrag = [];	
+	pointsDrag = [];
+        document.getElementById("col3").style.visibility='visible';
+
 };
+
+
+
 
 
 function guessWord (){

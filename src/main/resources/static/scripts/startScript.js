@@ -25,12 +25,14 @@ var startApp=(function(){
         },
 	beGuesser=function (){
 		initialize();
+                document.getElementById("insertName").style.visibility='hidden';
 		document.getElementById('col3').style.visibility='visible';		
                 document.getElementById("insertWord").style.visibility='hidden';
 	},
 	
 	start=function(){
                 initM();
+                document.getElementById("finished").style.visibility='hidden';
 		document.getElementById("col2").style.visibility='hidden';
 		document.getElementById("col3").style.visibility='hidden';
 		document.getElementById("initialButtons").style.visibility='visible';
