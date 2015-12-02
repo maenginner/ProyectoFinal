@@ -203,4 +203,8 @@ body {
     text-align: center;
 
 }
-
+#reinicio{
+    position: relative;
+    top:70%;
+    left: 30%;
+}

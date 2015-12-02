@@ -111,7 +111,7 @@ function addClick (x, y, dragging) {
  */
 function compareWords(word){
     var newW=word.split(":");
-    if (newW[1].toUpperCase().trim()===correctWord.toUpperCase().trim()){
+    if (newW[1].toUpperCase()===correctWord.toUpperCase() && word!==""){
         sendMessage("WIN,"+newW[0]);
     }
 };
@@ -163,15 +163,21 @@ function changeColor(color){
  * @param message Nombre del ganador
  */
 function finishGame(message){
-    var content="!! "+message+" ha ganado!!"
+    var content="!! "+message+" ha ganado!!";
     console.log(content.toUpperCase());
     document.getElementById("col2").style.visibility='hidden';
     document.getElementById("col3").style.visibility='hidden';
     document.getElementById("canvasDiv").style.visibility='hidden';
     document.getElementById("winner").innerHTML=content.toUpperCase();
     document.getElementById("finished").style.visibility='visible'; 
+    document.getElementById("reinicio").addEventListener("click", resetGame);
+    document.getElementById("reinicio").style.visibility='visible';
+
 };
 
+function resetGame(){
+    location.reload();
+};
 /**
  * 
  * @param tool Nueva herramienta a usar al cambiarla en la 
